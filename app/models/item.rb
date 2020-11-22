@@ -16,7 +16,7 @@ class Item < ApplicationRecord
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :category
-  belongs_to_active_hash :status_id
+  belongs_to_active_hash :status
   belongs_to_active_hash :ship_method
   belongs_to_active_hash :shipment_source
   belongs_to_active_hash :days_to_ship
