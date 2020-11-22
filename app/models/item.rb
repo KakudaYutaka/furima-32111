@@ -4,15 +4,13 @@ class Item < ApplicationRecord
   has_one :buy
 
   with_options presence: true do
+    validates :image
     validates :product
     validates :description
-    validates :category_id
-    validates :status_id
-    validates :ship_method_id
-    validates :shipment_source_id
-    validates :days_to_ship_id
-    validates :price, numericality: { only_integer: true, allow_blank: true, message: 'Half-width number' }#価格の範囲機能追加すること
+    validates :price, numericality: { only_integer: true, allow_blank: true, message: 'Half-width number' }
   end
+  
+  validates :price, numericality: { greater_than: 299, less_than: 10000000, allow_blank: true, message: 'Out of setting range' }
 
   with_options numericality: { other_than: 1, message: 'Select' } do
     validates :category_id
