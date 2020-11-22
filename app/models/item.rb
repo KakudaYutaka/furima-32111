@@ -13,4 +13,11 @@ class Item < ApplicationRecord
     validates :days_to_ship_id
     validates :price #価格の範囲指定 半角数字のみ機能追加すること
   end
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :category
+  belongs_to_active_hash :status_id
+  belongs_to_active_hash :ship_method
+  belongs_to_active_hash :shipment_source
+  belongs_to_active_hash :days_to_ship
 end
