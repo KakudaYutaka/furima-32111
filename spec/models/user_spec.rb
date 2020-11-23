@@ -30,7 +30,7 @@ describe User do
       it 'emailに＠が含まれていないと登録できない' do
         @user.email = 'aaaaemail'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Email is invalid")
+        expect(@user.errors.full_messages).to include('Email is invalid')
       end
       it '重複したemailが存在する場合登録できない' do
         @user.save

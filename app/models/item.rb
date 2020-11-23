@@ -9,8 +9,8 @@ class Item < ApplicationRecord
     validates :description
     validates :price, numericality: { only_integer: true, allow_blank: true, message: 'Half-width number' }
   end
-  
-  validates :price, numericality: { greater_than: 299, less_than: 10000000, allow_blank: true, message: 'Out of setting range' }
+
+  validates :price, numericality: { greater_than: 299, less_than: 10_000_000, allow_blank: true, message: 'Out of setting range' }
 
   with_options numericality: { other_than: 1, message: 'Select' } do
     validates :category_id
@@ -26,6 +26,4 @@ class Item < ApplicationRecord
   belongs_to_active_hash :ship_method
   belongs_to_active_hash :shipment_source
   belongs_to_active_hash :days_to_ship
-
-
 end
