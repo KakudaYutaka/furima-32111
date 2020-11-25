@@ -56,13 +56,13 @@
 
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
-| postal_code_id | string     | null: false                    |
+| postal_code    | string     | null: false                    |
 | state_id       | integer    | null: false                    |
 | city           | string     | null: false                    |
 | block_number   | string     | null: false                    |
 | building_name  | string     |                                |
 | phone_number   | string     | null: false                    |
-| buy            | references | null: false, foreign_key: true |
+| order          | references | null: false, foreign_key: true |
 
 ### Association
 
