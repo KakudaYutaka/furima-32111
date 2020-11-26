@@ -1,8 +1,8 @@
 class OrderAddress
   include ActiveModel::Model
-  attr_accessor :postal_code, :state_id, :city, :block_number, :building_name, :phone_number, :user_id, :item_id
+  attr_accessor :postal_code, :state_id, :city, :block_number, :building_name, :phone_number, :user_id, :item_id, :token
 
-
+  validates :token, presence: true
   #addressバリデーション
   with_options presence: true do
     validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: 'Input correctly' }
