@@ -3,12 +3,8 @@ class OrdersController < ApplicationController
   before_action :set_order, only: [:index, :create]
 
   def index
-    if user_signed_in? && Order.exists?(item_id: @order[:id])
-      redirect_to root_path 
-    end
-    if user_signed_in? && current_user.id == @order.user_id
-      redirect_to root_path
-    end
+    redirect_to root_path if user_signed_in? && Order.exists?(item_id: @order[:id])
+    redirect_to root_path if user_signed_in? && current_user.id == @order.user_id
     @order_address = OrderAddress.new
   end
 
