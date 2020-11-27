@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   before_action :set_order, only: [:index, :create]
 
   def index
-    redirect_to root_path if current_user.id == @item.user_id || Order.exists?(item_id: @item[:id])
+    redirect_to root_path if current_user.id == @item.user_id || @item.order.item_id == @item.id
     @order_address = OrderAddress.new
   end
 
