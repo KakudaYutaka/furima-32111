@@ -11,6 +11,10 @@ RSpec.describe OrderAddress, type: :model do
         it 'token,postal_code,state_id,city,block_number,phone_numberが存在すれば登録できる' do
           expect(@order_address).to be_valid
         end
+        it 'building_nameが空でも登録できる' do
+          @order_address.building_name = ''
+          expect(@order_address).to be_valid
+        end
       end
 
       context '商品購入ががうまくいかないとき' do
