@@ -7,7 +7,5 @@ FactoryBot.define do
     block_number  { Faker::Address.street_name }
     building_name { Faker::Address.secondary_address }
     phone_number  { '12345678901' }
-    # association :user
-    # association :item
   end
 end
